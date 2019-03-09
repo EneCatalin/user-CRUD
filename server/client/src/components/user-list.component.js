@@ -11,7 +11,8 @@ const User = props => (
     <td>{props.user.phone}</td>
     <td>{props.user.website}</td>
     <td>
-      <Link to={"/edit/" + props.user._id}>Edit</Link>
+      <Link to={"/edit/" + props.user._id}>Edit {"\u00A0\u00A0\u00A0"} </Link>
+      <Link to={"/delete/" + props.user._id}>Delete</Link>
     </td>
   </tr>
 );
