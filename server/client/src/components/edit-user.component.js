@@ -51,7 +51,6 @@ export default class EditTodo extends Component {
   }
 
   onChangeUserLegalName(e) {
-    console.log(e.target.value);
     this.setState({
       user_legalName: e.target.value
     });
@@ -84,12 +83,12 @@ export default class EditTodo extends Component {
   onSubmit(e) {
     e.preventDefault();
     const obj = {
-      user_id: this.state.id,
-      user_legalName: this.state.name,
-      user_username: this.state.username,
-      user_email: this.state.email,
-      user_phone: this.state.phone,
-      user_website: this.state.website
+      id: this.state.user_id,
+      name: this.state.user_legalName,
+      username: this.state.user_username,
+      email: this.state.user_email,
+      phone: this.state.user_phone,
+      website: this.state.user_website
     };
     console.log(obj);
     axios
