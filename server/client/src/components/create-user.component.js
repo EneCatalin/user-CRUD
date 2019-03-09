@@ -90,7 +90,7 @@ export default class CreateUser extends Component {
       .then(response => {
         console.log(response);
       })
-      .then(res => console.log(res.data))
+      // .then(res => console.log(res.data))
       .catch(error => {
         console.log(error.response);
       });
