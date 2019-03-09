@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -71,6 +72,29 @@ export default class CreateUser extends Component {
     console.log(`User phone: ${this.state.user_phone}`);
     console.log(`User website: ${this.state.user_website}`);
 
+    const newUser = {
+      id: this.state.user_id,
+      name: this.state.user_legalName,
+      username: this.state.user_username,
+      email: this.state.user_email,
+      phone: this.state.user_phone,
+      website: this.state.user_website
+    };
+
+    // axios
+    //   .post("http://localhost:5000/users/add/", newUser)
+    //   .then(res => console.log(res.data));
+
+    axios
+      .post("http://localhost:5000/users/add/", newUser)
+      .then(response => {
+        console.log(response);
+      })
+      .then(res => console.log(res.data))
+      .catch(error => {
+        console.log(error.response);
+      });
+
     this.setState({
       user_id: "",
       user_legalName: "",
@@ -89,7 +113,7 @@ export default class CreateUser extends Component {
           <div className="form-group">
             <label>User Id:</label>
             <input
-              type="text"
+              type="numeric"
               className="form-control"
               value={this.state.user_id}
               onChange={this.onChangeUserId}
