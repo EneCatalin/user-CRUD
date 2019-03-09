@@ -29,7 +29,6 @@ userRoutes.route("/").get(function(req, res) {
     }
   });
 });
-
 userRoutes.route("/:id").get(function(req, res) {
   let id = req.params.id;
   User.findById(id, function(err, user) {
@@ -55,11 +54,11 @@ userRoutes.route("/update/:id").post(function(req, res) {
       res.status(404).send("data is not found");
     } else {
       user.id = req.body.id;
-      // user.user_name = req.body.user_name;
-      // user.user_username = req.body.user_username;
-      // user.user_email = req.body.user_email;
-      // user.user_phone = req.body.user_phone;
-      // user.user_website = req.body.user_website;
+      user.name = req.body.name;
+      user.username = req.body.username;
+      user.email = req.body.email;
+      user.phone = req.body.phone;
+      user.website = req.body.website;
 
       user
         .save()
