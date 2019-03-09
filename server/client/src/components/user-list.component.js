@@ -4,7 +4,7 @@ export default class UserList extends Component {
   render() {
     return (
       <div>
-        <p>Welcome to User List Component!</p>
+        <p>Welcome to Edit User Component!</p>
       </div>
     );
   }

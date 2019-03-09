@@ -11,16 +11,16 @@ const userSchema = new Schema({
   },
   name: {
     type: String,
-    required: [true, "Please enter an author"]
+    required: [true, "Please enter a name"]
   },
   username: {
     type: String,
-    required: [true, "Please enter the ISBN"],
+    required: [true, "Please enter a username"],
     unique: true
   },
   email: {
     type: String,
-    required: [true, "Please enter a description"],
+    required: [true, "Please enter an email"],
     unique: true
   },
   phone: {
