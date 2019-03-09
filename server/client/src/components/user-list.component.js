@@ -44,14 +44,16 @@ export default class UserList extends Component {
       <div>
         <h3>User List</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Website</th>
-          </thead>
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Website</th>
+            </tr>
+          </tbody>
           <tbody>{this.UserList()}</tbody>
         </table>
       </div>
