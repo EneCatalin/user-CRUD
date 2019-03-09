@@ -51,6 +51,7 @@ export default class EditTodo extends Component {
   }
 
   onChangeUserLegalName(e) {
+    console.log(e.target.value);
     this.setState({
       user_legalName: e.target.value
     });
