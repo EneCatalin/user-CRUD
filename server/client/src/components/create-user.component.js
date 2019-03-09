@@ -83,8 +83,73 @@ export default class CreateUser extends Component {
 
   render() {
     return (
-      <div>
-        <p>Welcome to User List Component!</p>
+      <div style={{ marginTOp: 20 }}>
+        <h3>Create New User</h3>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label>User Id:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.user_id}
+              onChange={this.onChangeUserId}
+            />
+          </div>
+          <div className="form-group">
+            <label>User Name:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.user_legalName}
+              onChange={this.onChangeUserLegalName}
+            />
+          </div>
+          <div className="form-group">
+            <label>User Username:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.user_username}
+              onChange={this.onChangeUserUsername}
+            />
+          </div>
+          <div className="form-group">
+            <label>User Email:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.user_email}
+              onChange={this.onChangeUserEmail}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>User Phone:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.user_phone}
+              onChange={this.onChangeUserPhone}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>User Website:</label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.user_website}
+              onChange={this.onChangeUserWebsite}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Create User"
+              className="btn btn-primary"
+            />
+          </div>
+        </form>
       </div>
     );
   }
