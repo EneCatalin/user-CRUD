@@ -8,8 +8,6 @@ const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
 const PORT = 5000;
 
-let User = require("./models/User");
-
 app.use(cors());
 app.use(bodyParser.json());
 

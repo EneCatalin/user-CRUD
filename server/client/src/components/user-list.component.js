@@ -1,8 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, Button } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import DeleteUser from "./delete-user.component";
+import UserService from "./Services";
+
 // import DeleteUser from "./delete-user.component";
+
+function del(data) {
+  console.log(data);
+  axios
+    .get("http://localhost:5000/users/delete/" + data)
+    .then(() => {
+      console.log("User Deleted !!!");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
 
 const User = props => (
   <tr>
@@ -14,7 +27,16 @@ const User = props => (
     <td>{props.user.website}</td>
     <td>
       <Link to={"/edit/" + props.user._id}>Edit {"\u00A0\u00A0\u00A0"} </Link>
-      <Link to={"/"}>Delete</Link>
+    </td>
+    <td>
+      <Link
+        to={"#" + props.user.id}
+        onClick={() => {
+          del(props.user._id);
+        }}
+      >
+        Delete {"\u00A0\u00A0\u00A0"}{" "}
+      </Link>
     </td>
   </tr>
 );
@@ -22,6 +44,8 @@ const User = props => (
 export default class UserList extends Component {
   constructor(props) {
     super(props);
+    this.userService = new UserService();
+
     this.state = { users: [] };
   }
 
@@ -45,16 +69,22 @@ export default class UserList extends Component {
       });
   }
 
-  deleteUser = id => {
-    axios
-      .delete(`/api/users/${id}`)
-      .then(res => {
-        if (res.data) {
-          this.deleteUsers();
-        }
-      })
-      .catch(err => console.log(err));
-  };
+  // To delete any employee
+  deleteUser(id) {
+    this.userService.deleteUser(id);
+    this.UserList();
+  }
+
+  // deleteUser = id => {
+  //   axios
+  //     .delete(`/api/users/${id}`)
+  //     .then(res => {
+  //       if (res.data) {
+  //         this.deleteUsers();
+  //       }
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (
