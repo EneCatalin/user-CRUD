@@ -81,16 +81,11 @@ export default class CreateUser extends Component {
       website: this.state.user_website
     };
 
-    // axios
-    //   .post("http://localhost:5000/users/add/", newUser)
-    //   .then(res => console.log(res.data));
-
     axios
       .post("http://localhost:5000/users/add/", newUser)
       .then(response => {
         console.log(response);
       })
-      // .then(res => console.log(res.data))
       .catch(error => {
         console.log(error.response);
       });
@@ -129,7 +124,7 @@ export default class CreateUser extends Component {
             />
           </div>
           <div className="form-group">
-            <label>User Username:</label>
+            <label>User UserName:</label>
             <input
               type="text"
               className="form-control"
