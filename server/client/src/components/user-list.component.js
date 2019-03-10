@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import DeleteUser from "./delete-user.component";
 // import DeleteUser from "./delete-user.component";
 
 const User = props => (
