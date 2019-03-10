@@ -34,7 +34,6 @@ class App extends Component {
           <Route path="/" exact component={UserList} />
           <Route path="/edit/:id" component={EditUser} />
           <Route path="/create" component={CreateUser} />
-          <Route path="/delete/:id" component={UserList} />
         </div>
       </Router>
     );

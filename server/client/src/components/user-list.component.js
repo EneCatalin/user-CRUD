@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// import DeleteUser from "./delete-user.component";
 
 const User = props => (
   <tr>
@@ -12,7 +13,7 @@ const User = props => (
     <td>{props.user.website}</td>
     <td>
       <Link to={"/edit/" + props.user._id}>Edit {"\u00A0\u00A0\u00A0"} </Link>
-      <Link to={"/delete/" + props.user._id}>Delete</Link>
+      <Link to={"/"}>Delete</Link>
     </td>
   </tr>
 );
@@ -34,11 +35,25 @@ export default class UserList extends Component {
       });
   }
 
+  //This also sorts...somehow. I really need to read up on map
   UserList() {
-    return this.state.users.map(function(currentUser, index) {
-      return <User user={currentUser} key={index} />;
-    });
+    return this.state.users
+      .sort((a, b) => a.id - b.id)
+      .map(function(currentUser, index) {
+        return <User user={currentUser} key={index} />;
+      });
   }
+
+  deleteUser = id => {
+    axios
+      .delete(`/api/users/${id}`)
+      .then(res => {
+        if (res.data) {
+          this.deleteUsers();
+        }
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (

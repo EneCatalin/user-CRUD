@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class EditTodo extends Component {
+export default class EditUser extends Component {
   constructor(props) {
     super(props);
 
@@ -98,7 +98,7 @@ export default class EditTodo extends Component {
       )
       .then(res => console.log(res.data));
 
-    // this.props.history.push("/");
+    this.props.history.push("/");
   }
 
   render() {

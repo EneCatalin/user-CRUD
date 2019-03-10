@@ -113,7 +113,7 @@ export default class CreateUser extends Component {
           <div className="form-group">
             <label>User Id:</label>
             <input
-              type="numeric"
+              type="number"
               className="form-control"
               value={this.state.user_id}
               onChange={this.onChangeUserId}

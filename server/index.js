@@ -72,6 +72,23 @@ userRoutes.route("/update/:id").post(function(req, res) {
   });
 });
 
+userRoutes.route("/delete/:id").delete(function(req, res) {
+  User.findById(req.params.id, function(err, user) {
+    if (!user) {
+      res.status(404).send("Nothing to delete");
+    } else {
+      user
+        .delete()
+        .then(user => {
+          res.json("User deleted");
+        })
+        .catch(err => {
+          res.status(400).send("Nothing to delete" + err);
+        });
+    }
+  });
+});
+
 app.use("/users", userRoutes);
 
 app.listen(PORT);
